@@ -14,7 +14,7 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
 
 1. Two Confluent Cloud Clusters following the active-active DR pattern:
 
-//TODO : Upload a better solution file ? 
+//TODO : Upload a better resolution ?  Hard to read contents even when zooming in completely.
    ![Active-Active Patter](./assets/active-active%20pattern.svg) 
 
 2. Kubernetes Cluster deployed (connectivity to CCloud cluster required)
