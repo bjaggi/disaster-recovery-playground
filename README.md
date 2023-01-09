@@ -21,8 +21,12 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
    ![Active-Active Patter](./assets/active-active%20pattern.svg) 
 
 
-//TODO :  From the image it looks like K8S is only used for the clients? looks like the focus has been on the demo and not on describing the problem/solution.
+//TODO :  From the image it looks like K8S is only used for the clients? looks like the focus has been on the demo and not on describing the problem/solution.  
+
 2. Kubernetes Cluster deployed (connectivity to CCloud cluster required)
+
+// TODO : can you add reloader pod in the diagram ?.  And may be write 2 lines about the reloader pod. 
+
 
 3. [Reloader](https://github.com/stakater/Reloader) pod deployed on your preferred namespace (default namespace can be a good option so any other one will have access to it). For standard deployment you can execute:
 
@@ -49,6 +53,10 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
    export CCLOUD_WEST_APIKEY= # DC-2 Api Key #
    export CCLOUD_WEST_PASSWD= # DC-2 Password #
    ```
+   
+      //TODO : Can you describe what is the difference between proxied and non proxied clients ?  
+
+
     * The following scripts will use `.env` file to configure the resource creation
     * All mirror topics will be prefixed with `<DC-Name>-`
     2. Run  `ccloud-resources/cluster-linking/cluster-linking-north-west.sh` to create DC-1 to DC-2 `cluster link`
@@ -57,6 +65,10 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
     5. Run `ccloud-resources/cluster-linking/cluster-linking-west-north.sh` to create DC-2 to DC-1 `cluster link`
     6. Run `ccloud-resources/cluster-linking/create-mirror-topic-west-north.sh` to create mirror topic on DC1 for proxy based clients
     7. Run `ccloud-resources/cluster-linking/create-mirror-noproxy-topic-west-north.sh` to create mirror topic on DC1 for non proxy based clients
+
+
+//TODO : Sorry i am not a K8S expert, so you are telling K8S to listen to config changes & reload the application? If yes, can we describe this in more detail. 
+
 
 6. **Java Clients (producer/consumer)** images on a available registry (you can use the resource definition provided under k8's resources folder)
 
@@ -126,6 +138,11 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
         3. When disaster happens we will change the `k8s-resources/proxy/kafka-proxy-configmap.yaml` with the values of DC2 Cluster
 
         4. `Reloader` will trigger a `rolling update` on any deployment annotated to listen changes of this CM.
+
+
+// TODO: this is fine only if data produced to DC2 doesnt need to be copied back to DC2?  can you make a note of this ?
+// TODO: I will share a couple more options that i shared with a customer.  We can add to a blog.  
+
 
         5. As failback procedure we just need to restore the connection data on `k8s-resources/proxy/kafka-proxy-configmap.yaml` to the DC 1 values and after a `rolling update` clients will be again connecting to the original cluster.
 
