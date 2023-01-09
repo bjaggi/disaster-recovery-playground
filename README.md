@@ -7,16 +7,22 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
 ## Active-Active Platform over Confluent Cloud with Clients hosted on K8s Cluster with automatic restart on config changes
 
 ### Architectural Design
-
+//TODO : Upload a better resolution ?  Hard to read contents even when zooming in completely.
 ![Architectual Design](./assets/K8s%20Active%20-%20Active%20Disaster%20Recovery%20Strategy.svg)
+
+
+// TODO : I want to day add a section for *problem with Active Active setup, and how your solution helps*. But that should probably go in a seperate blog. 
 
 ### Scenario Topology
 
 1. Two Confluent Cloud Clusters following the active-active DR pattern:
 
 //TODO : Upload a better resolution ?  Hard to read contents even when zooming in completely.
+//TODO : Can you descibe the topics and this active-active setup briefly, i am confused about the US.CHUCK-FACTS topic
    ![Active-Active Patter](./assets/active-active%20pattern.svg) 
 
+
+//TODO :  From the image it looks like K8S is only used for the clients? looks like the focus has been on the demo and not on describing the problem/solution.
 2. Kubernetes Cluster deployed (connectivity to CCloud cluster required)
 
 3. [Reloader](https://github.com/stakater/Reloader) pod deployed on your preferred namespace (default namespace can be a good option so any other one will have access to it). For standard deployment you can execute:
