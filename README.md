@@ -17,7 +17,6 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
 
 1. Two Confluent Cloud Clusters following the active-active DR pattern:
 
-//TODO : Upload a better resolution ?  Hard to read contents even when zooming in completely.
 //TODO : Can you descibe the topics and this active-active setup briefly, i am confused about the US.CHUCK-FACTS topic
    ![Active-Active Patter](./assets/active-active%20pattern.svg) 
 
