@@ -11,7 +11,7 @@ Reproduce different architectural patterns for Confluent Cluster Disaster Recove
 ![Architectual Design](./assets/K8s%20Active%20-%20Active%20Disaster%20Recovery%20Strategy.svg)
 
 
-// TODO : I want to day add a section for *problem with Active Active setup, and how your solution helps*. But that should probably go in a seperate blog. 
+// TODO : I want to say add a section for *problem with Active Active setup, and how your solution helps*. But that should probably go in a seperate blog. 
 
 ### Scenario Topology
 
